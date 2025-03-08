@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECI Navigation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+    
+        .nav-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+            padding: 20px 0;
+            background-color: white;
+        }
+
+        .nav-item {
+            position: relative;
+            width: 180px;
+            text-align: center;
+            cursor: pointer; /* Add cursor pointer */
+            text-decoration: none; /* Remove default link styling */
+            color: black;
+        }
+
+        .nav-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            background-color: white;
+            border: 5px solid transparent;
+            padding: 10px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .nav-icon img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .nav-text {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .nav-item::before {
+            content: "";
+            width: 100%;
+            height: 5px;
+            background-color: transparent;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            z-index: -1;
+        }
+
+        .nav-item.active .nav-icon {
+            border-color: #007bff;
+        }
+
+        .nav-item.active::before {
+            background-color: #007bff;
+        }
+
+        /* Hover effect */
+        .nav-item:hover .nav-icon {
+            border-color: #ff9800;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Section -->
+<div class="nav-section">
+    
+    <!-- Electors -->
+    <a href="electoralsearch.html" class="nav-item active">
+        <div class="nav-icon" style="border-color: teal;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Electors">
+        </div>
+        <div class="nav-text">Electoral Search</div>
+    </a>
+
+    <!-- Political Parties / Candidates -->
+    <a href="political_parties.html" class="nav-item active">
+        <div class="nav-icon" style="border-color: purple;">
+            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Political Parties">
+        </div>
+        <div class="nav-text">Political Parties/Candidates</div>
+    </a>
+
+    <!-- Election Management -->
+    <a href="election_management.html" class="nav-item active">
+        <div class="nav-icon" style="border-color: red;">
+            <img src="https://cdn-icons-png.flaticon.com/512/609/609803.png" alt="Election Management">
+        </div>
+        <div class="nav-text">Election Management</div>
+    </a>
+    
+    <a href="Cm.html" class="nav-item active">
+        <div class="nav-icon" style="border-color: red;">
+            <img src="https://cdn-icons-png.flaticon.com/512/609/609803.png" alt="Election Management">
+        </div>
+        <div class="nav-text">Current CM's</div>
+    </a>
+
+    <!-- Media & Publications -->
+    <a href="media_publications.html" class="nav-item active">
+        <div class="nav-icon" style="border-color: blue;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3050/3050525.png" alt="Media & Publications">
+        </div>
+        <div class="nav-text">Media & Publications</div>
+    </a>
+
+</div>
+
+</body>
+</html>

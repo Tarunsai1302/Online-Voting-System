@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Commission Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+    :root {
+            --primary: #06BBCC;
+            --light: #F0FBFC;
+            --dark: #181d38;
+        }
+        /* Background */
+        body {
+          /*  background: linear-gradient(to right, #87CEEB, #00BFFF); */
+          background-color:var(--light);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        
+
+        /* Sidebar */
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            background: linear-gradient(to bottom, #4682B4, #1E90FF); /* Darker Blue Gradient */
+            backdrop-filter: blur(10px);
+            padding-top: 80px;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background: #495057;
+        }
+
+        /* Content */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            width: calc(100% - 250px);
+        }
+
+        /* Registration Form */
+        .registration-container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+      .custom-card {
+  /*  background: linear-gradient(to bottom, #4682B4, #00BFFF);   */
+  background-color:var(--primary);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px; /* Increased width */
+}
+
+
+        .btn-gradient {
+            background: linear-gradient(to right, #00BFFF, #4682B4);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(to right, #4682B4, #00BFFF);
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+          <!--   <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>Online Voting System</h2> -->
+            <img src="img/logo.png" alt="Election Commission Logo" width="50" height="50" class="me-2">
+    <h2 class="m-0 text-primary">Online Voting System</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="#ab" class="nav-item nav-link">About</a>
+                <a href="Voterlog.html" class="nav-item nav-link">Voter</a>
+              <!--  <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Login As</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="adminlog.html" class="dropdown-item">Admin</a>
+                        <a href="Voterlog.html" class="dropdown-item">Voter</a>
+                        
+                    </div>
+                </div>  -->
+                <a href="EClog.html" class="nav-item nav-link">ElectionCommission</a>
+               
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+           <!-- <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Register Now<i class="fa fa-arrow-right ms-3"></i></a>
+-->      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Sidebar Start -->
+    
+    <div class="sidebar">
+    <a href="NewFile.html">DashBoard</a>
+        <a href="Assembly.jsp">Assembly Constituencies</a>
+        <a href="constituency.jsp">Parliament Constituencies</a>
+        <a href="PartyReg.html">Party Registration</a>
+        <a href="partyview.jsp">View All Parties</a>
+        <a href="candidate.jsp">View Candidates List</a>
+        <a href="voterreg.html">Add Voter</a>
+        <a href="Display.jsp">View All Voters</a>
+        <a href="updatenotif.jsp">Election Notification</a>
+        <a href="ecd.jsp">View Request</a>
+        <a href="announce_results.jsp">Announce Results</a>
+        <a href="EClog.html">Logout</a>
+    </div>
+    <!-- Sidebar End -->
+
+    <!-- Content Area -->
+    <div class="content">
+        <div class="registration-container">
+            <div class="custom-card">
+                <h2 class="text-uppercase text-center mb-4" style="color: white;">Enter Voter Details</h2>
+
+                <form id="voterForm" action="Voterreg" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label" for="fname">Voter Name</label>
+                        <input type="text" id="fname" name="fname" class="form-control" required />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="lname">Father Name</label>
+                            <input type="text" id="lname" name="lname" class="form-control" required />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="uname">Mother Name</label>
+                            <input type="text" id="uname" name="un" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="address">Address</label>
+                        <textarea id="address" name="address" class="form-control" rows="3" required></textarea>
+                    </div>
+                     <div class="mb-3">
+                        <label class="form-label" for="state">State</label>
+                        <!--<select id="state" name="state" class="form-select" required>
+                            <option value="">Select State</option>
+                            <option value="AndhraPradesh">AndhraPradesh</option>
+                            <option value="Telangana">Telangana</option>
+                        </select>  -->
+                        <select id="stateDropdown" name="state" class="form-select" required>
+    <option value=""> Select State </option>
+</select>
+                        
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="const">Parliament Constituency</label>
+                     <!--   <input type="text" id="const" name="aconst" class="form-control" required />  -->
+                     <select id="parliamentDropdown" name="pconst" class="form-control" required />
+            <option value=""> Select Parliamentary Constituency </option>
+        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="const">Assembly Constituency</label>
+                    <!--    <input type="text" id="const" name="pconst" class="form-control" required />   -->
+                     <select id="assemblyDropdown" name="aconst" class="form-control" required />
+            <option value=""> Select Assembly Constituency </option>
+        </select>
+                    
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="gender">Gender</label>
+                        <select id="gender" name="gender" class="form-select" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="mobile">Mobile</label>
+                            <input type="tel" id="mobile" name="mobile" class="form-control" required />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="dob">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" class="form-control" required />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="aadhar">Aadhar Number</label>
+                        <input type="number" id="aadhar" name="aadhar" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="pic">Profile Pic</label>
+                        <input type="file" id="pic" name="profile" accept="image/*" class="form-control" required />
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-lg btn-gradient">Register</button>
+                       <button class='btn btn-secondary' onclick='history.back()'>Back</button>
+                    </div>
+                </form>
+                 
+            </div>
+        </div>
+    </div>
+
+
+<script>
+ // Fetch and populate state dropdown
+    // Fetch and populate state dropdown
+// Fetch and populate state dropdown
+// Fetch and populate state dropdown
+// Fetch and populate state dropdown
+// Fetch and populate state dropdown
+// Fetch and populate state dropdown
+function loadStates() {
+    fetch("http://localhost:8085/OnlineVotingSystem/StateConstituencyServlet")	
+        .then(response => response.json())  // This will now parse the JSON response
+        .then(states => {
+            let dropdown = document.getElementById("stateDropdown");
+            dropdown.innerHTML = '<option value="">-- Select State --</option>';
+            states.forEach(state => {
+                let option = document.createElement("option");
+                option.value = state;
+                option.textContent = state;
+                dropdown.appendChild(option);
+            });
+        })
+        .catch(error => console.error("Error loading states:", error));
+}
+
+
+// Load states when the page loads
+window.onload = loadStates;
+
+
+
+function loadParliamentaryConstituencies() {
+    let selectedState = document.getElementById("stateDropdown").value;
+    let parliamentDropdown = document.getElementById("parliamentDropdown");
+
+    if (!selectedState) {
+        parliamentDropdown.innerHTML = '<option value="">-- Select Parliamentary Constituency --</option>';
+        return;
+    }
+
+    fetch(`http://localhost:8085/OnlineVotingSystem/StateConstituencyServlet?state=${selectedState}`)
+        .then(response => response.json())
+        .then(constituencies => {
+            parliamentDropdown.innerHTML = '<option value="">-- Select Parliamentary Constituency --</option>';
+            
+            let uniqueConstituencies = [...new Set(constituencies)]; // Remove duplicates in JavaScript
+
+            uniqueConstituencies.forEach(constituency => {
+                let option = document.createElement("option");
+                option.value = constituency;
+                option.textContent = constituency;
+                parliamentDropdown.appendChild(option);
+            });
+        })
+        .catch(error => console.error("Error loading parliamentary constituencies:", error));
+}
+
+
+
+function loadAssemblyConstituencies() {
+    let selectedParliament = document.getElementById("parliamentDropdown").value;
+    let assemblyDropdown = document.getElementById("assemblyDropdown");
+
+    if (!selectedParliament) {
+        assemblyDropdown.innerHTML = '<option value="">-- Select Assembly Constituency --</option>';
+        return;
+    }
+
+    fetch(`http://localhost:8085/OnlineVotingSystem/NewFile.jsp?parliament=${selectedParliament}`)
+        .then(response => response.json())
+        .then(constituencies => {
+            assemblyDropdown.innerHTML = '<option value="">-- Select Assembly Constituency --</option>';
+            
+            if (constituencies.length === 0) {
+                assemblyDropdown.innerHTML += '<option value="">No Constituencies Found</option>';
+                return;
+            }
+
+            let uniqueConstituencies = [...new Set(constituencies)];
+            uniqueConstituencies.forEach(constituency => {
+                let option = document.createElement("option");
+                option.value = constituency;
+                option.textContent = constituency;
+                assemblyDropdown.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error("Error loading assembly constituencies:", error);
+            assemblyDropdown.innerHTML = '<option value="">-- Select Assembly Constituency --</option>';
+        });
+}
+
+
+// Add event listeners
+document.getElementById("stateDropdown").addEventListener("change", loadParliamentaryConstituencies);
+document.getElementById("parliamentDropdown").addEventListener("change", loadAssemblyConstituencies);
+
+document.getElementById("voterForm").addEventListener("submit", function(event) {
+    let dobInput = document.getElementById("dob").value;
+    let dob = new Date(dobInput);
+    let today = new Date();
+    let age = today.getFullYear() - dob.getFullYear();
+
+    if (today.getMonth() < dob.getMonth() || (today.getMonth() === dob.getMonth() && today.getDate() < dob.getDate())) {
+        age--;
+    }
+
+    if (age < 18) {
+        alert("Voter must be at least 18 years old to register.");
+        event.preventDefault();
+    }
+});
+
+
+    </script>
+
+</body>
+</html>

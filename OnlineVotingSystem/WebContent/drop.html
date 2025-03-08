@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State & Constituency Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #003366; /* Dark Blue */
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: #004080; /* Slightly lighter blue */
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: auto;
+            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+        }
+
+        select, button {
+            font-size: 16px;
+            padding: 8px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        select {
+            background: white;
+            color: black;
+        }
+
+        #constituencies {
+            font-size: 18px;
+            color: #FFA07A; /* Light Orange */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Select a State</h2>
+        <select id="stateDropdown">
+            <option value="">-- Select State --</option>
+        </select>
+
+        <h2>Constituencies</h2>
+        <select id="constituencyDropdown">
+            <option value="">-- Select Constituency --</option>
+        </select>
+    </div>
+
+    <script>
+        // Fetch and populate state dropdown
+        function loadStates() {
+            fetch("http://localhost:8085/OnlineVotingSystem/StateConstituencyServlet")
+                .then(response => response.json())
+                .then(states => {
+                    let dropdown = document.getElementById("stateDropdown");
+                    dropdown.innerHTML = '<option value="">-- Select State --</option>';
+                    states.forEach(state => {
+                        let option = document.createElement("option");
+                        option.value = state;
+                        option.textContent = state;
+                        dropdown.appendChild(option);
+                    });
+                })
+                .catch(error => console.error("Error loading states:", error));
+        }
+
+        // Fetch constituencies when a state is selected
+        function loadConstituencies() {
+            let selectedState = document.getElementById("stateDropdown").value;
+            let constituencyDropdown = document.getElementById("constituencyDropdown");
+            
+            if (!selectedState) {
+                constituencyDropdown.innerHTML = '<option value="">-- Select Constituency --</option>';
+                return;
+            }
+
+            fetch(`http://localhost:8085/OnlineVotingSystem/StateConstituencyServlet?state=${selectedState}`)
+                .then(response => response.json())
+                .then(constituencies => {
+                    constituencyDropdown.innerHTML = '<option value="">-- Select Constituency --</option>';
+                    constituencies.forEach(constituency => {
+                        let option = document.createElement("option");
+                        option.value = constituency;
+                        option.textContent = constituency;
+                        constituencyDropdown.appendChild(option);
+                    });
+                })
+                .catch(error => console.error("Error loading constituencies:", error));
+        }
+
+        document.getElementById("stateDropdown").addEventListener("change", loadConstituencies);
+
+        // Load states when page loads
+        window.onload = loadStates;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>eVoting System </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<style>
+/* Marquee container styling */
+.marquee-container {
+    width: 100%;
+    margin: 5px auto;
+    background: #002147; /* Deep royal blue */
+    padding: 12px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 230, 230, 0.3); /* Light teal glow */
+    border: 1px solid rgba(0, 230, 230, 0.5);
+}
+
+/* Heading style */
+.marquee-container h2 {
+    color: #00E6E6; /* Light teal */
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 2px 2px 6px rgba(0, 230, 230, 0.7); /* Subtle glow */
+}
+
+/* Marquee text style */
+marquee {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFD700; /* Soft coral */
+    text-shadow: 1px 1px 4px rgba(255, 111, 97, 0.6); /* Subtle glow */
+    padding: 6px 0;
+    letter-spacing: 1px;
+}
+
+/* Navigation Section Styles */
+.nav-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 15px 0;
+    background-color: transparent;
+    margin-top: 15px; /* Adds spacing below the marquee */
+}
+
+/* Individual Navigation Items */
+.nav-item {
+    position: relative;
+    width: 180px;
+    text-align: center;
+    cursor: pointer; /* Pointer for clickable effect */
+    text-decoration: none; /* Removes default link styling */
+    color: black;
+    transition: 0.3s ease-in-out;
+}
+
+/* Navigation Icons */
+.nav-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: white;
+    border: 5px solid transparent;
+    padding: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-icon img {
+    width: 60px;
+    height: 60px;
+}
+
+/* Navigation Text */
+.nav-text {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* Active Item Styling */
+.nav-item.active .nav-icon {
+    border-color: #007bff;
+}
+
+.nav-item.active::before {
+    background-color: #007bff;
+}
+
+/* Hover Effect */
+.nav-item:hover .nav-icon {
+    border-color: #ff9800;
+    transform: scale(1.1);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .nav-section {
+        flex-wrap: wrap; /* Stack items on smaller screens */
+        gap: 15px;
+    }
+
+    .nav-item {
+        width: 150px;
+    }
+
+    .nav-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .nav-icon img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .nav-text {
+        font-size: 14px;
+    }
+}
+
+</style><body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <img src="img/logo.png" alt="Election Commission Logo" width="50" height="50" class="me-2">
+        <h2 class="m-0 text-primary">Online Voting System</h2>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="index.html" class="nav-item nav-link active">Home</a>
+            <a href="#ab" class="nav-item nav-link">About</a>
+            <a href="Voterlog.html" class="nav-item nav-link">Voter</a>
+            <a href="EClog.html" class="nav-item nav-link">ElectionCommission</a>
+            <a href="#contact" class="nav-item nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+<!-- Navbar End -->
+
+
+
+
+
+    <!-- Carousel Start -->
+    <div class="marquee-container">
+        <h2>Latest Announcements</h2>
+        <marquee id="marqueeText" behavior="scroll" direction="left">
+            Loading announcements...
+        </marquee>
+    </div>
+
+    <script>
+        // Fetch marquee text dynamically from the server
+        fetch("MarqueeServlet")
+            .then(response => response.text())
+            .then(data => document.getElementById("marqueeText").innerHTML = data)
+            .catch(error => console.error("Error loading marquee:", error));
+    </script>
+    
+    <!-- Navigation Section (Placed Below Navbar) -->
+<div class="nav-section">
+    <a href="electoralsearch.html" class="nav-item active">
+        <div class="nav-icon" style="border-color: teal;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Electors">
+        </div>
+        <div class="nav-text">Electoral Search</div>
+    </a>
+
+    <a href="Candnom.html" class="nav-item active">
+        <div class="nav-icon" style="border-color: purple;">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAkFBMVEUhlvP///8clPMPkvP1+v6NyfiDvPfM5vxJpvVruPe11foAjfItm/QAkPKr1vqPwfi72/t6wPjl8v3z+f40nvTe7/1ls/bs9f4kmPNasfba7f0+pPWczPmLw/gwnfQAi/LJ4/yj0fpLq/VztvZ1vvikzvlLqvW02vvN5PyFxfmXx/is2Pup0fk8pvVus/ZhrvYAcI7DAAATBUlEQVR4nOVdi3aiOhSFExRtgSIvEcSL1tHWcer//92FBCxinoBVZ/adtWZuCyQ7r/PIyYmm3xaGYfih64xm08UuTVerWItXqzTdLaazkeOGfvH7G9dAu9mXjbkX5svpZmW/2jYCBJpW/MEo/1n8xLZfUbCZLvPQm9+O520Y+uGHe4hSsG2oWbEAxUNaGh3cj9C/SV1uwNDLj1kUICTidsETIWszPube8NUZmmHivBV9p8Tu3JkI0ujNSQau0aAMvfX7xBKOSz5Na/K1DIes1IAMnSiIoRc/whHiIHKGq9ZQDMNPrRiafemdaSLYmgPVbAiGhrffqC0sMhztneMNIUP6MzSSZWoPS68iaadLs78E6cvQz7N04O5rcERBlvfl2I+hkY8D+0b0CFAwdvuN1V4MzXFwq+77BgTv+Z0YJtPVzekRWNMeakBnhsaot+iTB8Bn56HakaG/D26yfjIpopXTccnpxNDIox/swJpklHfqxy4Mw2WAfppfAbQ6dJmOHRi6px/vvwpwcn+A4Txb3YtgQXGVKVuQqgzN093oEZxUhaMaQ2Nt3a8DCcBaqi04Sgy9xW1VNDnYC6WRqsLw4y5L6DVQ8HEThr5z9xFaA+KjvPiXZuhl8b2JNRDLr6myDMP3e5O6RCytjEsyTDaD+WCGAWg7SUeOHEPzB+xAVUAgR1GKofv6eARLP46UDifD0L2ZI6YfAO0HYWg4j7SItuCI9RshQ//+ihoH1lpIUcTwATRRHkBMUcTwcRQZOsASbXEIGLrxYxMsEAuWGz5D9zFUbT4QX2hwGZo/6k/rCrC5op/HMHlATYYGCHg6KodheG+HhTRgw6HIZug9mDXBxZRtTDEZ+tmDWRM8QJwxTWImw0fW1SiImWKRxdC07l1nRcQs3w2DoZc+zxAlgIAxFekMjcUziPpLoAVdQ6UzXD+CX1QV9lKeYf5sk5DAojr8aQy9u20u9QOcaFORxjC7d1U7I5Nj6P5UAMLwCChmxjXD8EnHaAk4XYc1XjE0ls9LsKB4uBIZVwzz5x2jJYKr9bTN0I+eT9Y3gaK2Ct5m6DzzGC0BbRW8xdB4ErOeDVgZXIafzz1GS9ifPIbJz4c6DQ6AhMNw+vwEC4pTNsMnlxQ1VjmLofFMvice3g0GQzdQ+QwADB2gzyioKEZtfbhQTxsM/bH0Z4pC7Xi3iKJNCvYNaQKyId1E0WIX2wrNCWOfyjCX7UKwtcU6nPu+Yfi+b37+sW8jY5Cdfpo+KWYerhea9CZDU3f7ZmhkcvUELWiH6ybbWzgFrFnLk+2vA0kfLsq+Z+I3Q1OyCydr/RreeOCYTFjNaAb7OpV7vRGncWZoLGW6ECxqwXoZVzugjxyAFWTpzaSaEn0HMJ4ZejKtA+mxftMzXfflxc2TesR64+G85PG4tmT9JC+Lcc26YQ1HypWbelcM9xIORJhULWvkh/eJpZUH6XbjYzVd/MNQFK1D1WzJcbwrj/xp1uT9UAey5xMJivb+iuFG4rV6icrfU60WUQXLXRVG52eD7IlDXBnqXraLz6WAltZnZ2QWfdi0GSbiWQioKmF7Gb1QcJwQEWuMu3FqYUwIuhPtUtCDta0oSohGlLQYbsUM7RFpWdogAWKy+Lv+nQg7MkQ/acVMyGgZiacU2rYYitUiWJDOpk90myj0A2xZWaTxp1QSkJLfLsTVhUuGjrgLSckJy9dok5NJvU1ohEeD8cnoJdiRaohbEv2+YBgJ2wTh6T9nW5Bkj9Lv24kWbij2/iy8z8sWGAlbEqImQ0+8OuF4B+PIXi1hgltXXDQXCG8gJWyBAPERPyFRY6/BcC1c5hHeKA+5oggrg14viQFxWS2Dt3MCk1Ib8MeiloR43WD4LsxeEWN5sOZ9FtJSGTQ4nhBsUnKNPZiWrWRyGxLhmrtC9QLevxlyBkX9NJ7g/h/uc+hX+TGWclTYevFmOvucTTcx06Ykqsgvbv8QccJvBfwcmTaYoTgAkdiU5iv/oagcYiFtmIK2ipxvnd1zohVNUYe4HIGeYI/91dRl7PUqbBEzfBNLl4PMKoJtFu9a6oO2O7Q3hcLD7poj7MpWENlxRPU4iCv9VjP0xLKCLGCi+AWs1l0LFEgzWi6PMLtSHmBaioJcVAzWPY7iiYjHVMkwFxpOsMLzQ/QcKtvBb/kKACJWeKTbPmxLVuyjaJlM8XwXG4ppXjE8itd34r0SCQJsdxqHiwqCNjvbevn68Pb2dlif8ySE48uRitUKYynQOiHGzSNhYRwJw3aj00AYiqx4UsELhhBnc8ImyU5pXGYt0eL0lFWa//wyeo7yAQpAk2SIh4Qmt60t14c27sOLBoMtMYXm28JgrtiUf1szQtzYXjDMBu1DWISYoSn25VfzkC8OiwqWT/mzxlO1criP2/2C4mp2Npc5mJXj90XUh3/wJyVi7MuDippkMDcW5qKNGyij5+aNXWRIcU8ZS9qxolfiLWqG0KGofP5DVAy21H5J1LoMAdfk/KQIy0NRMBg23pouLcD9ZBzo79kjTHHfbJFyfU8Ea7aNJblctY2C4VwsDUsdDxct+B42bMzGD4hZvGS+8etqnJZtNOeryYAf8oS6dPloMSY0STfiBGtKAtMaqwXf2jnECVkSWG8BWcCS7/UUS1T9yK/LAmuQct5Pr2AYSjxZ4AVXlmtbYO3c+G4Fso7yNCaISlnZMEcAh1AmXHcPOV/xIlftsGCYS0VaEn3K43YinqvhdyMQ3xy/KrjhGlVAWD048GqCD6tznA1N2HnBUM4oBw1HGXPiMuE0v1xvYYNNDa4jFuEwLe/7GeIim3NENImx/JDbQ7CXusazWC/qMvXxus/6PRB3sdfoDmzz5/zPQ/lWU6uysY2Vs6NesIzxJWtdWNSaIePsxg/j4T8f0xsPqmD5xqTDL4hkEcIuupfGW2T9dej6E2hjPFJc2UpvCoay0QmV9PbGNCcEstZEd2lUFQcMzAUNCBtsLzXtBLLjsLYoTQOw9dpaAh+BofnSvrHKizw/XFEENCHVMieNH2IBI3JMgYVlaNMlMSF7f/vJ1ZYvwIFosxIe+rrSvhbyPRMXIKHihvvncvkFbUtMhTBq/hQfRgpFK7VdLjXJRU9HxNxKtq0JYU+q1G1sFeIKr6HmKoTlV0NR99Zp7UsqU8guqn2v+bT5MFbs9UTIELfDpRR6r+yOfHF2WQGy03Xl6FkreJ3tXFM6eBDXAf9GPktLtyDEm2XtYGqJdiLNTSFDE3d+69XzN0ebMmMooHR2zoO1VNmmtB1NzUcNzU1uL2ym/jXTlvfipDBKW/IPpY1Dk/MwbBY6k11kyJdGmtoLhYim5xSbH9tShLgrPYFkBg2r9G01DbTjnFaMn5/Udg3gU5sq7jNAnF2n3PTcxXWsC1YB5gKrGXZYWlzZ64Ai9yomwjeVd5nRVBPvxLXLttNsn1yU+yuiFlxKfF+wsCNs1bu0cuLo10VbJvtMPVEqLLSd4iv4Nes0XjqmmSSm62Rf7d3ouvJYvxJ4ELChQI90KT46+coctyzGdJbjU6fUADtNKgSnWMzs1yb++8+G2CoQo9f/Ln7zel7gUUQMdl69yJ6uVzs+2sUU30akGLD/+69VjFycW6qJ9Z+CnhatTc+QgR+6oz8IV5gYwHzfIOnnhAxyhP58klT7YnjmOtLEGd+LJtSEoesQT37TljUOvBFeOcjGN8+crYxmsqUdjFTz6f2eiD37gSbUD3ZdcmvPt2XLrXCVORsMZDvEs8qazKjiQQBnwvx2hZUmaIV41jFBepk/kkQd+DPm1/FCir1mXXI+lghFsWaiXraWdcvOiwVNBmc1J/kC4jpjemoq5SwpZvpXLX6MUK6Y5FyvpWgU8jiCVmV/MfZvX7uJDHan92VV20IVI44l3aMGx9gkTYBRPFZZE3qyfD9JlvOV7au6rQX8eC1QH87Yn1Ygj3hSxbkVawyQOKp5dm3roWrLJoMqRkb3skmsUE5Qj2xW7A3GireWkv2B4guKqhJoleLsxlAZXEZ+qY4UilGl364tqM7vmqlihCrEVQ9wNMNiLeXIwxg3si/jE29/95U07yeccwAZv3dxrOHG1+J4Vwsgx4IqJq5LyjTA7jHdY0+1Qh6ydRrAza8QwX8BQjEtBu05k1M5y4op9D1TizlUDMuUEOxUCszwx9fsOqZsvZRo/RLb5fS3SYgd9iA0d/F9v6FMh2VkEMkrx1fu2LCwRJ2ztYod27YA/K44bIUFcuahmCKATtTU+IZ7Kq/E2JGR0rEU4u9ib9QXtgXLPiQGrOwRBQpWuG+cshPBGrttm9J3x9hWIFtlasd1miB+Z2bME2yZNj7CfRB2P+sF2HfrEZMHgq9lM5uTufwKsNoMFt6F6DjZS6y4YW6Fjc/00+A9E9GWOgckzK0+V1ysOKvJdPTbzfe/R9PJqg7gJud2zR6pVEg6DNaGHBppDoMDjkUxRDv3HAB6waulFVRYNVH/kOTMe+lxdgr+4O0RhkxADstfSjxl865dCHH6tZbX2cP1V9o5atMuZwMrdtnOWT5vEoqr4i6+wE75zqYyzq0bsLhh7Yy/hqx9C8BHAqROCl2/G1Dj2IQcs24HyXFYscFYq5DP2nsicX2d4tKBLv7EMNxOhxmIFfpGr2rA3D9EmOGsA0M41WLBN/eODPZnp6HZJesImrEZ4v1D+m5qZ4YkDLus7XYSWHIIJvUNXeJoZUpVeQynhsYQeZ0ZVgdCyn0o0DQpQw8/SawEPVFXMXgMy318RixGV4ZQbZVqqpsFCKqNUeVO5DLMmfE0HRlWUVBdErtWxwF01Y0ULkMcT0OPierI0BJFUnBQRXOEqqduOAxJTBQ9rq0bQ3LixYvET9JQ+d5UhTCPIY5ro7vduzHEer6x7HgiGEisjKo9w2FIYhPpu0OdGJKtsi4rPgGxSUUbctelshm6JEaYZn12YogDnAz+iRcu0C+JMKqrl9gMqxjhkObI6MSQbJX1OEdKTpSIImhbYDOs47ypsfqE4dZW8NCCjVcKs8/xPCwUvUit2C2LYR2rT3XjEIbOWAkv5Rjjnm8TAZ9LM17UinWYo7Q6b0G1jwnDDrg8XqDMcNb1FkAaw/OZGdreUHeGyqEPF8Uy0qx2Yvh97knPrisF464Mex1Yh11XhhQL+PvsGvX8YdrxxuE7MaQEtjfPH9JkNFjTkSqSgRgmyiVPKX3UPENKPQeMz+wqAe/GDMHQ1WzFomlBGc1zwBJnuWVqZw3GcIhrQy7Pckucx5f45GMxvDyPL5FTQYwHY3iZU0EmL4b4k4/FsJUXQyK3ibh2D8WwndtEIfqd/c2HYniVnyb86xi2cwxJ5YkS1O6RGF7niZLK9SX4KGbo/7ELoOK/8o/d/Pvy/+g//eMPw5CS66v/jRaEoe6+9AH5RG+GQMnXJpdzT4LhAOjPkJZzTzpv4lMwTL9D7dVzX3IovgzE8KV3F1JzX8rnL2UynJhSMdoifHR2uNZIqflLO0ewNShai2l/LHobOqwctP07UW67UIy+1bi4PuDfygX9t+TzvrxR5x/Lya6Hf0Ve/ZDDkB8U/hyokpCyGP4F91sE/Pst/oI7StqHtP69e2YGEPt3hfiuoH/gvqe//86uPnHzd8dK6t61f+DuvH/g/sPnu0iWQP4OS13/9YzKm8o9pP/AXbJ//33Auv7xbFNR9U7nMh/nveusBPV7uf+Bu9V1byr+8sPgnZ1wgs3wiRRUklZMnWHns7k/DQg4BLkMdVM5pc89ADY3QI3LUC7F8L2B+FtefIYSdyzcHfGeT0HAUHce3Pl2ztnQmaFxHCQC61YAay0K1xQx1P31I29miAmKGeoG+96euyN2xAG3YoblivqYAxWQYJGRZqi7DykXwZaKjJBiqJsPuKKCZCS6HEM9GfKGyiEA2omnqqkz1MMHszTiqeyRf1mGupc90pIaZ9L5+aQZ6v5+kBsqhwDE7ft6B2F4nUf3XkBKp11UGOre4hH8qPZCKYOkEkOcXe3O/CQ00V4MdfN0Z4asq5AHY6jPs4Hvp1YBBPJraGeGJG/nnQh2yQHagaEeLoN7LKpodZBUY3oz1I28fSXc7QEQ0XOl34RhKf6DH7U3AAUKQn4IhuV9tT/YjQCfXU/PdmdY2BvTn/JvWNJq9rAMC+E4/gGvOATvqiJwOIbFkjMObqvIoWDcMXPYMAzL6xiy9HZuHBRkeccFZjCGRT8mS/UrC2QAdro0+/XfMAwLjt5+wbzDuCs9ZO8crz+/YRiWCD81BIP5cgDBtov+QsNQDAv8joK4/2GJ4gtxEKneVcDBgAzLW5LeJ1YvjgDW5F05byYXgzIskDhZlGqdJiUgLY0yZ6jRWWNohgW8/JgtAnomB2bXIbQ6Zcdc2foT4wYMC/ih6R6KvrTFt4iUl34VfXdwP8K+ko+O2zAsYcy9MF9ONwF6tQtZgnCeyIoUXi2Rbb+iYDNd5qE3H0Iu0HE7hgTlecIwd0az6WKXpqtVrMWrVZruFtPPkZOH5a9vXIP/AfZTQdmpJRDCAAAAAElFTkSuQmCC" alt="Political Parties">
+        </div>
+        <div class="nav-text">Candidates form</div>
+    </a>
+
+    <a href="EM.html" class="nav-item active">
+        <div class="nav-icon" style="border-color: red;">
+            <img src="https://cdn-icons-png.flaticon.com/512/609/609803.png" alt="Election Management">
+        </div>
+        <div class="nav-text">Election Management</div>
+    </a>
+    
+    <a href="Cm.html" class="nav-item active">
+        <div class="nav-icon" style="border-color: red;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Election Management">
+        </div>
+        <div class="nav-text">Current CM's</div>
+    </a>
+
+    <a href="publication.html" class="nav-item active">
+        <div class="nav-icon" style="border-color: blue;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3050/3050525.png" alt="Media & Publications">
+        </div>
+        <div class="nav-text">Media & Publications</div>
+    </a>
+</div>
+    
+    <div class="container-fluid p-0 mb-5">
+        <div class="owl-carousel header-carousel position-relative">
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="img/v1.webp" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-sm-10 col-lg-8">
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Secure Online Platform</h5>
+                                <h1 class="display-3 text-white animated slideInDown">The Best Online Voting Platform</h1>
+                          <!--       <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.</p>
+                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Register Now</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel-item position-relative">
+                <!--  <img class="img-fluid" src="img/voting.mp4" alt=""> -->
+                <video autoplay loop muted class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+        <source src="img/voting.mp4" type="video/mp4">
+    </video>
+                
+                      
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-sm-10 col-lg-8">
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Secure Online Platform</h5>
+                                <h1 class="display-3 text-white animated slideInDown">Utilize your Vote From Anywhere</h1>
+                           <!--      <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.</p>
+                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Register Now</a>--> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+     <!-- Service Start -->
+  <!--   <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                            <h5 class="mb-3">Skilled Instructors</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <h5 class="mb-3">Online Classes</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                            <h5 class="mb-3">Home Projects</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                            <h5 class="mb-3">Book Library</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Service End -->
+
+
+    <!-- About Start -->
+    <div id="ab">
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="img-fluid position-absolute w-100 h-100" src="img/vote.jpg" alt="" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <h6 class="section-title bg-white text-start text-primary pe-3">About</h6>
+                    <h1 class="mb-4">Welcome to eVoting</h1>
+                    <p class="mb-4"><h6>What is Online Voting?</h6> </p>
+                    <p class="mb-4">The Online Voting System is a secure and efficient digital platform that allows voters to cast their ballots electronically from anywhere. It eliminates the need for physical polling stations, making the election process faster, more accessible, and transparent.</p>
+                    <p class="mb-4"><h6>Why Online Voting?</h6></p>
+                    <p class="mb-4"></p>
+                    <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Secure</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Transparent</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Convenient</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Efficient</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Accessible</p>
+                        </div>
+                        
+                    </div>
+                    <!-- <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a> -->
+                </div>
+            </div>
+        </div>
+    </div></div>
+    
+    <!-- About End -->
+
+
+    <!-- Categories Start -->
+ <!--    <div class="container-xxl py-5 category">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
+                <h1 class="mb-5">Courses Categories</h1>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-7 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="img/cat-1.jpg" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Web Design</h5>
+                                    <small class="text-primary">49 Courses</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="img/cat-2.jpg" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Graphic Design</h5>
+                                    <small class="text-primary">49 Courses</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="img/cat-3.jpg" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Video Editing</h5>
+                                    <small class="text-primary">49 Courses</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
+                    <a class="position-relative d-block h-100 overflow-hidden" href="">
+                        <img class="img-fluid position-absolute w-100 h-100" src="img/cat-4.jpg" alt="" style="object-fit: cover;">
+                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
+                            <h5 class="m-0">Online Marketing</h5>
+                            <small class="text-primary">49 Courses</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>  -->
+    <!-- Categories Start -->
+
+
+    <!-- Courses Start -->
+<!--     <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+                <h1 class="mb-5">Popular Courses</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/course-1.jpg" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0">$149.00</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small>(123)</small>
+                            </div>
+                            <h5 class="mb-4">Web Design & Development Course for Beginners</h5>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/course-2.jpg" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0">$149.00</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small>(123)</small>
+                            </div>
+                            <h5 class="mb-4">Web Design & Development Course for Beginners</h5>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/course-3.jpg" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0">$149.00</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small>(123)</small>
+                            </div>
+                            <h5 class="mb-4">Web Design & Development Course for Beginners</h5>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  -->
+    <!-- Courses End -->
+
+
+    <!-- Team Start -->
+ <!--    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Instructors</h6>
+                <h1 class="mb-5">Expert Instructors</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/team-1.jpg" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Instructor Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/team-2.jpg" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Instructor Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/team-3.jpg" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Instructor Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/team-4.jpg" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Instructor Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  -->
+    <!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+ <!--    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+                <h1 class="mb-5">Our Students Say!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-4.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Client Name</h5>
+                    <p>Profession</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  -->
+    <!-- Testimonial End -->
+        
+
+    <!-- Footer Start -->
+<div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <!-- Contact Section -->
+            <div class="col-lg-3 col-md-6" id="contact">
+                <h4 class="text-white mb-3">Contact</h4>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Dagguluru,West Godavari,AP,India</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 6303856585</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>dileepkarra7@gmail.com</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div> <!-- Closing div for Contact Section -->
+
+            <!-- Contact Form -->
+            <div class="col-lg-6 col-md-6">
+                <h4 class="text-white mb-3">Let's get in touch</h4>
+                <form id="contact" action="feedback.jsp" method="post">
+                    <div class="row">
+                        <div class="col-lg-4 mb-3">
+                            <input name="name" type="text" id="name" placeholder="Your Name...*" required class="form-control">
+                        </div>
+                        <div class="col-lg-4 mb-3">
+                            <input name="email" type="email" id="email" placeholder="Your Email..." required class="form-control">
+                        </div>
+                        <div class="col-lg-4 mb-3">
+                            <input name="subject" type="text" id="subject" placeholder="Subject...*" required class="form-control">
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <textarea name="message" class="form-control" id="message" placeholder="Your Message..." required></textarea>
+                        </div>
+                        <div class="col-lg-12">
+                            <button type="submit" id="form-submit" class="btn btn-primary">Send Message Now</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Newsletter Section -->
+         <!--   <div class="col-lg-3 col-md-6">
+                <h4 class="text-white mb-3">Newsletter</h4>
+                <p>Stay updated with our latest news.</p>
+                <div class="position-relative mx-auto" style="max-width: 400px;">
+                    <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                </div>
+            </div>  -->
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="#">Online Voting System</a>, All Rights Reserved.
+                    Designed By <a class="border-bottom" href="#">Tarun - Dileep - Ashok - Mani</a>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-menu">
+                        <a href="">Home</a>
+                        <a href="">Cookies</a>
+                        <a href="">Help</a>
+                        <a href="">FQAs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+   <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

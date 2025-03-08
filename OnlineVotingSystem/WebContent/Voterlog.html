@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Login Page</title>  
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- MDBootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+    /* Navigation Section Styles */
+.nav-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 15px 0;
+    background-color: transparent;
+    margin-top: 15px; /* Adds spacing below the marquee */
+}
+
+/* Individual Navigation Items */
+.nav-item {
+    position: relative;
+    width: 180px;
+    text-align: center;
+    cursor: pointer; /* Pointer for clickable effect */
+    text-decoration: none; /* Removes default link styling */
+    color: black;
+    transition: 0.3s ease-in-out;
+}
+
+/* Navigation Icons */
+.nav-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: white;
+    border: 5px solid transparent;
+    padding: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-icon img {
+    width: 60px;
+    height: 60px;
+}
+
+/* Navigation Text */
+.nav-text {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* Active Item Styling */
+.nav-item.active .nav-icon {
+    border-color: #007bff;
+}
+
+.nav-item.active::before {
+    background-color: #007bff;
+}
+
+/* Hover Effect */
+.nav-item:hover .nav-icon {
+    border-color: #ff9800;
+    transform: scale(1.1);
+}
+        .frm-container {
+            width: 400px;
+            padding: 30px;
+            margin: auto;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border: 2px solid #007bff;
+        }
+
+        .frm-container h2 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        .h-custom {
+            height: calc(100% - 73px);
+        }
+
+        @media (max-width: 450px) {
+            .h-custom {
+                height: 100%;
+            }
+        }
+
+        body {
+            background: linear-gradient(to right, #84fab0, #4FA3D1);
+            min-height: 100vh;
+        }
+
+     /*   .otp-input {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .otp-input input {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: border 0.3s ease-in-out;
+        }
+
+        .otp-input input:focus {
+            border: 2px solid #007bff;
+        }  */
+    </style>
+</head>
+<body>
+
+<!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+          <!--   <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>Online Voting System</h2> -->
+            <img src="img/logo.png" alt="Election Commission Logo" width="50" height="50" class="me-2">
+    <h2 class="m-0 text-primary">Online Voting System</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+              <!--  <a href="#ab" class="nav-item nav-link">About</a>  -->
+                <a href="Voterlog.html" class="nav-item nav-link">Voter</a>
+              <!--  <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Login As</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="adminlog.html" class="dropdown-item">Admin</a>
+                        <a href="Voterlog.html" class="dropdown-item">Voter</a>
+                        
+                    </div>
+                </div>  -->
+                <a href="EClog.html" class="nav-item nav-link">ElectionCommission</a>
+               
+            <!--    <a href="#contact" class="nav-item nav-link">Contact</a>  -->
+            </div>
+           <!-- <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Register Now<i class="fa fa-arrow-right ms-3"></i></a>
+-->      </div>
+    </nav>
+    <!-- Navbar End -->
+
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                     class="img-fluid" alt="Sample image">
+            </div>
+
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <div class="frm-container">
+                    <!-- Login Form -->
+                    <form id="loginForm">
+                        <h2>Voter Login Page</h2>
+
+                        <div class="form-outline mb-4">
+                            <input type="number" id="mobileNumber" name="mobile" class="form-control form-control-lg"
+                                   placeholder="Enter a valid mobile number" required />
+                            <label class="form-label" for="mobileNumber">Mobile Number</label>
+                        </div>
+
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <button type="button" class="btn btn-primary btn-lg" onclick="generateOTP()">
+                                Generate OTP
+                            </button>
+                       <!--     <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account?
+                                <a href="voterreg.html" class="link-danger">Register</a></p>   -->
+                        </div>
+                    </form>
+
+                    <!-- OTP Verification Form (Initially Hidden) -->
+                    <form id="otpForm" style="display: none;" action="verify">
+                        <h2>Verify OTP</h2>
+                        <p>Enter the 6-digit OTP sent to your mobile</p>
+
+                        <div>
+                            <input type="text" name="number" required><br><br>
+                        <!--     <input type="text" maxlength="1" required>
+                            <input type="text" maxlength="1" required>
+                            <input type="text" maxlength="1" required>
+                            <input type="text" maxlength="1" required>
+                            <input type="text" maxlength="1" required>    -->
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+        <!-- Back Button -->
+        <button type="button" class="btn btn-secondary btn-lg" onclick="goBackToLogin()">
+            Back
+        </button>
+
+        <!-- Verify OTP Button -->
+        <button type="submit" class="btn btn-primary btn-lg">
+            Verify & Login
+        </button>
+    </div>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">
+                            Didn't receive OTP? <a href="#" class="link-danger">Resend OTP</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- MDBootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+<script>
+function generateOTP() {
+    let mobileNumber = document.getElementById("mobileNumber").value.trim();
+
+    if (!mobileNumber) {
+        alert("Please enter a valid mobile number.");
+        return;
+    }
+
+    fetch("generateOTP?mobile=" + mobileNumber)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.status === "success") {
+                alert(data.message + "\nOTP: " + data.otp); // Display OTP for debugging (remove later)
+                showOTPForm(); // Show OTP form after success
+            } else {
+                alert("Failed to generate OTP. Try again.");
+            }
+        })
+        .catch(error => {
+            alert("Something went wrong. Please try again.");
+            console.error("Error:", error);
+        });
+}
+
+function showOTPForm() {
+    document.getElementById("loginForm").style.display = "none";
+    document.getElementById("otpForm").style.display = "block";
+}
+
+function goBackToLogin() {
+    document.getElementById("otpForm").style.display = "none";
+    document.getElementById("loginForm").style.display = "block";
+}
+
+</script>
+
+
+
+
+</body>
+</html>

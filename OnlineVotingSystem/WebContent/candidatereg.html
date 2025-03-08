@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Nomination Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #F0FBFC;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            
+        }
+        .custom-card {
+            background-color: #06BBCC;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .btn-gradient {
+            background: linear-gradient(to right, #00BFFF, #4682B4);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn-gradient:hover {
+            background: linear-gradient(to right, #4682B4, #00BFFF);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-3 w-100">
+        <div class="container">
+            <a href="index.html" class="navbar-brand d-flex align-items-center">
+                <img src="img/logo.png" alt="Election Commission Logo" width="50" height="50" class="me-2">
+                <h2 class="m-0 text-primary">Online Voting System</h2>
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="custom-card mt-5">
+        <h2 class="text-uppercase text-center mb-4 text-white">Candidate Nomination Form</h2>
+        <form action="CandidateNominationServlet" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label">Election Year</label>
+                <select id="electionYear" name="electionYear" class="form-select" required>
+                <option value="">select year</option>
+                    <option value="2025">2025</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Candidate Name</label>
+                <input type="text" id="candidateName" name="candidateName" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Date of Birth</label>
+                <input type="date" id="dob" name="dob" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Guardian Name</label>
+                <input type="text" id="guardianName" name="guardianName" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Upload Candidate Picture</label>
+                <input type="file" id="candidatePicture" name="candidatePicture" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Any Cases (Civil or Criminal)</label>
+                <select id="cases" name="cases" class="form-select">
+                    <option value="none">No Cases</option>
+                    <option value="civil">Civil Case</option>
+                    <option value="criminal">Criminal Case</option>
+                    <option value="both">Both Civil & Criminal Cases</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Annual Income (in INR)</label>
+                <input type="number" id="income" name="income" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Position</label>
+                <select id="positionDropdown" name="position" class="form-select">
+                    <option value="">Select Position</option>
+                    <option value="mp">MP</option>
+                    <option value="mla">MLA</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Party</label>
+                <input type="text" id="party" name="party" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">State</label>
+                <select id="stateDropdown" name="states" class="form-select">
+                    <option value="">Select State</option>
+                    <option value="AndhraPradesh">Andhrapradesh</option>
+                    <option value="Telangana">Telangana</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Constituency</label>
+                <select id="constituencyDropdown" name="constituency" class="form-select">
+                    <option value="">Select Constituency</option>
+                </select>
+            </div>
+            <div class="form-check mb-3">
+                <input type="checkbox" id="declaration" name="declaration" class="form-check-input" required>
+                <label class="form-check-label" for="declaration">I hereby declare that the above information is true and correct to the best of my knowledge.</label>
+            </div>
+            <div class="d-flex justify-content-center">
+                <input type="submit" value="Submit" class="btn btn-lg btn-gradient">
+                        <button class='btn btn-secondary' onclick='history.back()' Style="text-align: center;padding-top: 10px;">Back</button>
+                
+            </div>
+        </form>
+        
+    </div>
+
+    <script>
+        function loadConstituencies() {
+            let selectedState = document.getElementById("stateDropdown").value;
+            let selectedPosition = document.getElementById("positionDropdown").value;
+            let constituencyDropdown = document.getElementById("constituencyDropdown");
+            if (!selectedState || !selectedPosition) {
+                constituencyDropdown.innerHTML = '<option value="">-- Select Constituency --</option>';
+                return;
+            }
+            let url = `http://localhost:8085/OnlineVotingSystem/candreg.jsp?states=${selectedState}&position=${selectedPosition}`;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    constituencyDropdown.innerHTML = '<option value="">-- Select Constituency --</option>';
+                    data.constituencies.forEach(constituency => {
+                        let option = document.createElement("option");
+                        option.value = constituency;
+                        option.textContent = constituency;
+                        constituencyDropdown.appendChild(option);
+                    });
+                })
+                .catch(error => console.error("Error loading constituencies:", error));
+        }
+        document.getElementById("stateDropdown").addEventListener("change", loadConstituencies);
+        document.getElementById("positionDropdown").addEventListener("change", loadConstituencies);
+    </script>
+</body>
+</html>

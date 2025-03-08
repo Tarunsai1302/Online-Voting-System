@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Login & OTP Verification</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        .frm-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .otp-input {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .otp-input input {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: border 0.3s ease-in-out;
+        }
+
+        .otp-input input:focus {
+            border: 2px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <div class="frm-container">
+            <!-- Login Form -->
+            <form id="loginForm">
+                <h2>Voter Login Page</h2>
+                <div class="form-outline mb-4">
+                    <input type="number" id="mobileNumber" class="form-control form-control-lg"
+                        placeholder="Enter a valid mobile number" required />
+                    <label class="form-label" for="mobileNumber">Mobile Number</label>
+                </div>
+
+                <div class="text-center text-lg-start mt-4 pt-2">
+                    <button type="button" class="btn btn-primary btn-lg" onclick="showOTPForm()">
+                        Generate OTP
+                    </button>
+                </div>
+            </form>
+
+            <!-- OTP Verification Form (Initially Hidden) -->
+            <form id="otpForm" style="display: none;">
+                <h2>Verify OTP</h2>
+                <p>Enter the 6-digit OTP sent to your mobile</p>
+                
+                <div class="otp-input">
+                    <input type="text" maxlength="1" required>
+                    <input type="text" maxlength="1" required>
+                    <input type="text" maxlength="1" required>
+                    <input type="text" maxlength="1" required>
+                    <input type="text" maxlength="1" required>
+                    <input type="text" maxlength="1" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg">Verify OTP</button>
+                <p class="small fw-bold mt-2 pt-1 mb-0">
+                    Didn't receive OTP? <a href="#" class="link-danger">Resend OTP</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showOTPForm() {
+            document.getElementById("loginForm").style.display = "none";  // Hide login form
+            document.getElementById("otpForm").style.display = "block";  // Show OTP form
+        }
+    </script>
+
+</body>
+</html>

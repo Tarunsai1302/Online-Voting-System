@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Voter Registration</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Full page height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Card styling */
+        .custom-card {
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        /* Button gradient */
+        .btn-gradient {
+            background: linear-gradient(to right, #1E96BE, #4FA3D1);
+            color: white;
+            border: none;
+            width: 100%;
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(to right, #4FA3D1, #1E96BE);
+        }
+    </style>
+</head>
+<body>
+
+<section class="d-flex align-items-center justify-content-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <h2 class="text-uppercase text-center mb-4">Enter Voter Details</h2>
+
+                        <form id="voterRegForm" action="Voterreg" method="post" enctype="multipart/form-data">
+                            
+                            <div class="row mb-3">
+                                <label for="fname" class="col-sm-3 col-form-label">Voter Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="fname" name="fname" class="form-control" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="lname" class="col-sm-3 col-form-label">Father Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="lname" name="lname" class="form-control" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="uname" class="col-sm-3 col-form-label">Mother Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="uname" name="un" class="form-control" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="const" class="col-sm-3 col-form-label">Constituency</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="const" name="const" class="form-control" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="gender" class="col-sm-3 col-form-label">Gender</label>
+                                <div class="col-sm-9">
+                                    <select id="gender" name="gender" class="form-select" required>
+                                        <option value="">Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="mobile" class="col-sm-3 col-form-label">Mobile</label>
+                                <div class="col-sm-9">
+                                    <input type="tel" id="mobile" name="mobile" class="form-control" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="dob" class="col-sm-3 col-form-label">Date of Birth</label>
+                                <div class="col-sm-9">
+                                    <input type="date" id="dob" name="dob" class="form-control" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="aadhar" class="col-sm-3 col-form-label">Aadhar Number</label>
+                                <div class="col-sm-9">
+                                    <input type="number" id="aadhar" name="aadhar" class="form-control" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="profile" class="col-sm-3 col-form-label">Profile Pic</label>
+                                <div class="col-sm-9">
+                                    <input type="file" id="profile" name="profile" accept="image/*" class="form-control" required />
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-lg btn-gradient">Register</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function reinitializeScripts() {
+        console.log("Voter Registration form reinitialized.");
+    }
+
+    // Ensure reinitialization when dynamically loading into dashboard
+    document.addEventListener("DOMContentLoaded", reinitializeScripts);
+</script>
+
+</body>
+</html>
+
+
+

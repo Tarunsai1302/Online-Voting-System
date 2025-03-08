@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Commission Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+:root {
+            --primary: #06BBCC;
+            --light: #F0FBFC;
+            --dark: #181d38;
+        }
+
+       
+
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    background: linear-gradient(to bottom, #4682B4, #1E90FF); /* Darker Blue Gradient */
+    backdrop-filter: blur(10px);
+    padding-top: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.sidebar a:hover {
+    background: #495057;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    
+}
+body {
+            font-family: Arial, sans-serif;
+            background: var(--light);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            
+            margin: 50px auto;
+            padding: 20px;
+            background: var(--primary);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+    max-width: 700px;
+        }
+        h2 {
+            text-align: center;
+            color: #007bff;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], input[type="number"], input[type="file"], button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+   <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+          <!--   <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>Online Voting System</h2> -->
+            <img src="img/logo.png" alt="Election Commission Logo" width="50" height="50" class="me-2">
+    <h2 class="m-0 text-primary">Online Voting System</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="#ab" class="nav-item nav-link">About</a>
+                <a href="Voterlog.html" class="nav-item nav-link">Voter</a>
+              <!--  <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Login As</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="adminlog.html" class="dropdown-item">Admin</a>
+                        <a href="Voterlog.html" class="dropdown-item">Voter</a>
+                        
+                    </div>
+                </div>  -->
+                <a href="EClog.html" class="nav-item nav-link">ElectionCommission</a>
+               
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+           <!-- <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Register Now<i class="fa fa-arrow-right ms-3"></i></a>
+-->      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Sidebar Start -->
+    <div class="sidebar">
+    <a href="NewFile.html">DashBoard</a>
+        <a href="Assembly.jsp">Assembly Constituencies</a>
+        <a href="constituency.jsp">Parliament Constituencies</a>
+        <a href="PartyReg.html">Party Registration</a>
+        <a href="partyview.jsp">View All Parties</a>
+        <a href="candidate.jsp">View Candidates List</a>
+        <a href="voterreg.html">Add Voter</a>
+        <a href="Display.jsp">View All Voters</a>
+        <a href="updatenotif.jsp">Election Notification</a>
+        <a href="ecd.jsp">View Request</a>
+        <a href="announce_results.jsp">Announce Results</a>
+        <a href="EClog.html">Logout</a>
+    </div>
+    <!-- Sidebar End -->
+
+    <!-- Content Area -->
+    <div class="content" align="center">
+     <!--   <h2>Welcome to the Election Commission Dashboard</h2>
+        <p>Select an option from the sidebar to get started.</p>   -->
+        <div class="container">
+    <h2 style="color:white;">Register a Political Party</h2>
+
+    <form action="Partyreg" method="post" enctype="multipart/form-data" >
+    <label>Party ID</label>
+        <input type="text" name="partyid" required placeholder="Enter party id">
+    
+        <label>Party Name</label>
+        <input type="text" name="partyname" required placeholder="Enter party name">
+
+        <label>Party President</label>
+        <input type="text" name="partypresident" required placeholder="Enter president name">
+        
+        <label>General Secretary</label>
+        <input type="text" name="secretary" required placeholder="Enter secretary name">
+
+       <label class="form-label" for="state">State</label>
+                        <select id="state" name="state" class="form-select" required>
+                            <option value="">Select State</option>
+                            <option value="AndhraPradesh">AndhraPradesh</option>
+                            <option value="Telangana">Telangana</option>
+                        </select>
+
+        <label>Party Symbol (Image)</label>
+        <input type="file" name="partyimage" required accept="image/*"> 
+
+        <button type="submit" name="register">Register Party</button>
+        <button class='btn btn-secondary' onclick='history.back()'>Back</button>
+    </form>
+</div>
+        
+    </div>
+</body>
+</html>

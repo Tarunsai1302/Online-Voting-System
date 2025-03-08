@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    :root {
+            --primary: #06BBCC;
+            --light: #F0FBFC;
+            --dark: #181d38;
+        }
+        /* Background gradient */
+        .gradient-custom {
+           background: linear-gradient(to right, #84fab0, #4FA3D1); 
+        
+            min-height: 100vh; /* Ensures full height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Centering and styling the form */
+        .login-container {
+            width: 100%;
+            max-width: 400px; /* Adjust as needed */
+            padding: 20px;
+        }
+
+        .card {
+            border-radius: 10px;
+            background: var(--light); /* Slight transparency */
+            color: black;
+        }
+        /* Navigation Section Styles */
+.nav-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 15px 0;
+    background-color: transparent;
+    margin-top: 15px; /* Adds spacing below the marquee */
+}
+
+/* Individual Navigation Items */
+.nav-item {
+    position: relative;
+    width: 180px;
+    text-align: center;
+    cursor: pointer; /* Pointer for clickable effect */
+    text-decoration: none; /* Removes default link styling */
+    color: black;
+    transition: 0.3s ease-in-out;
+}
+
+/* Navigation Icons */
+.nav-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: white;
+    border: 5px solid transparent;
+    padding: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-icon img {
+    width: 60px;
+    height: 60px;
+}
+
+/* Navigation Text */
+.nav-text {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* Active Item Styling */
+.nav-item.active .nav-icon {
+    border-color: #007bff;
+}
+
+.nav-item.active::before {
+    background-color: #007bff;
+}
+
+/* Hover Effect */
+.nav-item:hover .nav-icon {
+    border-color: #ff9800;
+    transform: scale(1.1);
+}
+    </style>
+</head>
+<body>
+<!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+          <!--   <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>Online Voting System</h2> -->
+            <img src="img/logo.png" alt="Election Commission Logo" width="50" height="50" class="me-2">
+    <h2 class="m-0 text-primary">Online Voting System</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+         <!--       <a href="#ab" class="nav-item nav-link">About</a>  -->
+                <a href="Voterlog.html" class="nav-item nav-link">Voter</a>
+              <!--  <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Login As</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="adminlog.html" class="dropdown-item">Admin</a>
+                        <a href="Voterlog.html" class="dropdown-item">Voter</a>
+                        
+                    </div>
+                </div>  -->
+                <a href="EClog.html" class="nav-item nav-link">ElectionCommission</a>
+               
+            <!--    <a href="contact.html" class="nav-item nav-link">Contact</a>  -->
+            </div>
+           <!-- <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Register Now<i class="fa fa-arrow-right ms-3"></i></a>
+-->      </div>
+    </nav>
+    <!-- Navbar End -->
+<section class="gradient-custom">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="card p-4">
+                    <div class="card-body text-center">
+                        <h2 class="fw-bold mb-3 text-uppercase">EC Login</h2>
+                        <p class="text-black-50 mb-4">Enter your credentials to access the system</p>
+
+                        <form action="ECHome">
+                            <!-- Email Input -->
+                            <div class="form-outline form-white mb-3">
+                            <label class="form-label text-black" for="email">Email</label>
+                                <input type="email" name= "un" id="email" class="form-control" placeholder="Enter your email" required />
+                                
+                            </div>
+
+                            <!-- Password Input -->
+                            <div class="form-outline form-white mb-3">
+                            <label class="form-label text-black" for="password">Password</label>
+                                <input type="password" name="pass" id="password" class="form-control" placeholder="Enter your password" required />
+                                
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary w-100">Login</button>
+                      
+                                <a href="#" class="text-black-50">Forgot password?</a>
+                            </p>
+
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
